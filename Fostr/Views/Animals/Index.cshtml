@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Fostr.Models.Animal>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Pets</h1>
+
+<div class="row justify-content-between">
+    @foreach (var animal in Model)
+    {
+        <div class="card col-12 col-md-4 p-0 card-custom mt-3">
+            <img src="~/images/@animal.Image" class="card-img-top card-img-custom " alt="@animal.Description">
+            <div class="card-body">
+                <h5 class="card-title">@animal.Name</h5>
+                <p class="card-text">@animal.Description</p>
+                <a asp-action="Details" asp-route-id="@animal.Id "type="button" class="btn btn-primary text-decoration-none">Details</a>
+            </div>
+        </div>
+    }
+</div>
